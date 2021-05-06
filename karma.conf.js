@@ -25,11 +25,7 @@ module.exports = function (config) {
       suppressAll: true // removes the duplicated traces
     },
     coverageReporter: {
-<<<<<<< HEAD
       dir: require('path').join(__dirname, './coverage/team-wonderbread-final'),
-=======
-      dir: require('path').join(__dirname, './coverage/Wonderbread'),
->>>>>>> 6f26718 (initial commit)
       subdir: '.',
       reporters: [
         { type: 'html' },
