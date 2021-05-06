@@ -15,7 +15,7 @@ import { fakeBackendProvider } from './_helpers';
   declarations: [
     AppComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
     CalendarComponent
 
   ],
