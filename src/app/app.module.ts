@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { JwtInterceptor, ErrorInterceptor } from './_helpers';
+import { CalendarComponent } from './calendar/calendar.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -15,6 +16,8 @@ import { fakeBackendProvider } from './_helpers';
     AppComponent,
     LoginComponent,
     RegisterComponent
+    CalendarComponent
+
   ],
   imports: [
     BrowserModule,
