@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+
+export type EditorType = 'previous' | 'current' | 'next';
+
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
@@ -12,7 +15,27 @@ export class CalendarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  //Each element represents the days in each month. January, Feburary, etc...
+  calendar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+  editor: EditorType = 'current';
+
   
+  toggleEditor(type: EditorType) {
+    this.editor = type;
+  }
+
+  get showPreviousEditor() {
+    return this.editor === 'previous';
+  }
+
+  get showCurrentEditor() {
+    return this.editor === 'current';
+  }
+
+  get showNextEditor() {
+    return this.editor === 'next';
+  }
 
 
 

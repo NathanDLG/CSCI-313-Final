@@ -1,3 +1,3 @@
-.test{
-    background-color : aqua;
-}
+table, th, td {
+    border: 1px solid black;
+  }
