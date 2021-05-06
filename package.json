@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "team-wonderbread-final",
+=======
+  "name": "wonderbread",
+>>>>>>> 6f26718 (initial commit)
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",

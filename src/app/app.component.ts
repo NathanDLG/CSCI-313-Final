@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+<<<<<<< HEAD
   title = 'team-wonderbread-final';
+=======
+  title = 'Wonderbread';
+>>>>>>> 6f26718 (initial commit)
 }

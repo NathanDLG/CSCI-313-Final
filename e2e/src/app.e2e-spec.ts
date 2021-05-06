@@ -10,7 +10,11 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', async () => {
     await page.navigateTo();
+<<<<<<< HEAD
     expect(await page.getTitleText()).toEqual('team-wonderbread-final app is running!');
+=======
+    expect(await page.getTitleText()).toEqual('Wonderbread app is running!');
+>>>>>>> 6f26718 (initial commit)
   });
 
   afterEach(async () => {
