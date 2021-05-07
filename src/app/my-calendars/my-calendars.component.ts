@@ -12,7 +12,7 @@ export class MyCalendarsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  //Returns the calendars that are registered to an authenticated user's ID
+  //Returns the calendars that are registered to an authenticated/logged in user's ID
 
   
 

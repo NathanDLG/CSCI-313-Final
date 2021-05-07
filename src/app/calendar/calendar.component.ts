@@ -53,15 +53,16 @@ export class CalendarComponent implements OnInit {
     this.setMonthDays(this.calendarCreator.getMonth(this.monthNumber, this.year));
   }
 
-  //Array to hold all of the calendars 
+ 
 
-  
-  
-
-}
-  private setMonthDays(days: Day[]): void {
+   private setMonthDays(days: Day[]): void {
     this.monthDays = days;
     this.monthNumber = this.monthDays[0].monthIndex;
     this.year = this.monthDays[0].year;
   }
+
+
+   //Array to hold all of the calendars 
+
 }
+

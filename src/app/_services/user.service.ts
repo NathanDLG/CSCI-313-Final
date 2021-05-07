@@ -57,7 +57,7 @@ export class UserService {
     setUser(newUser : UserTemplate){
         this.tempID = this.tempID + 1;
         newUser.id = this.tempID; 
-
+        this.UserArray.push(newUser);
     }
 
 //Remove Single User
