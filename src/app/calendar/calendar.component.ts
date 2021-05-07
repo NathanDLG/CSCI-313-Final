@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit } from "@angular/core";
+import { CalendarCreatorService } from "../calendar-creator.service";
+import { Day } from "./day";
 
-
-export type EditorType = 'previous' | 'current' | 'next';
 
 @Component({
   selector: 'app-calendar',
@@ -11,33 +10,52 @@ export type EditorType = 'previous' | 'current' | 'next';
 })
 export class CalendarComponent implements OnInit {
 
-  constructor() { }
+  public monthDays: Day[];
+
+  public monthNumber: number;
+  public year: number;
+
+  public weekDaysName = [];
+
+  constructor(public calendarCreator: CalendarCreatorService) {}
 
   ngOnInit(): void {
+    this.setMonthDays(this.calendarCreator.getCurrentMonth());
+
+    this.weekDaysName.push("Mo");
+    this.weekDaysName.push("Tue");
+    this.weekDaysName.push("Wed");
+    this.weekDaysName.push("Th");
+    this.weekDaysName.push("Fr");
+    this.weekDaysName.push("Sat");
+    this.weekDaysName.push("Sun");
   }
 
-  //Each element represents the days in each month. January, Feburary, etc...
-  calendar = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+  onNextMonth(): void {
+    this.monthNumber++;
 
-  editor: EditorType = 'current';
+    if (this.monthNumber == 13) {
+      this.monthNumber = 1;
+      this.year++;
+    }
 
-  
-  toggleEditor(type: EditorType) {
-    this.editor = type;
+    this.setMonthDays(this.calendarCreator.getMonth(this.monthNumber, this.year));
   }
 
-  get showPreviousEditor() {
-    return this.editor === 'previous';
+  onPreviousMonth() : void{
+    this.monthNumber--;
+
+    if (this.monthNumber < 1) {
+      this.monthNumber = 12;
+      this.year--;
+    }
+
+    this.setMonthDays(this.calendarCreator.getMonth(this.monthNumber, this.year));
   }
 
-  get showCurrentEditor() {
-    return this.editor === 'current';
+  private setMonthDays(days: Day[]): void {
+    this.monthDays = days;
+    this.monthNumber = this.monthDays[0].monthIndex;
+    this.year = this.monthDays[0].year;
   }
-
-  get showNextEditor() {
-    return this.editor === 'next';
-  }
-
-
-
 }
