@@ -13,6 +13,8 @@ import { fakeBackendProvider } from './_helpers';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SearchComponent } from './search/search.component';
+import { MyCalendarsComponent } from './my-calendars/my-calendars.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +24,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CalendarComponent,
     HomeComponent,
     NavbarComponent,
+    SearchComponent,
+    MyCalendarsComponent,
 
   ],
   imports: [
@@ -35,6 +39,7 @@ import { NavbarComponent } from './navbar/navbar.component';
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
       { path: '', redirectTo: '/register', pathMatch: 'full'},
+      { path: 'home', component: HomeComponent}
     ]),
   ],
   providers: [

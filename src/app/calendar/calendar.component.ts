@@ -40,4 +40,9 @@ export class CalendarComponent implements OnInit {
 
 
 
+  //Array to hold all of the calendars 
+
+  
+  
+
 }

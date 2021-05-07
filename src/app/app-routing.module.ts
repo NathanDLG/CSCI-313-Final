@@ -5,6 +5,10 @@ import { RegisterComponent } from './register';
 import { AuthGuard } from './_helpers';
 //@ts-ignore
 import { CalendarComponent } from './calendar';
+import {HomeComponent } from './Home';
+import { SearchComponent } from './search';
+import {MyCalendarsComponent } from './my-calendars/my-calendars.component';
+
 
 const routes: Routes = [
   //add the home component/page here like this below
@@ -13,9 +17,12 @@ const routes: Routes = [
   { path : 'calendar', component: CalendarComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
- // { path: '', redirectTo: '/calendar', pathMatch: 'full'},
+  { path: 'home', component: HomeComponent},
+  { path: 'search', component: SearchComponent},
+  { path: 'my_calendars', component: MyCalendarsComponent }
+  //{ path: '', redirectTo: '/calendar', pathMatch: 'full'},
   //otherwise redirect back to whatever the home page is
- // { path: '**', redirectTo: '' }
+  //{ path: '**', redirectTo: '' }
 ];
 
 export const appRoutingModule = RouterModule.forRoot(routes);
