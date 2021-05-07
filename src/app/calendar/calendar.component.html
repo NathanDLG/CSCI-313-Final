@@ -1,78 +1,20 @@
-<h1>Calendar here:</h1>
+<p>calendar works!</p>
 
-<nav class="months">
-    <button (click)="toggleEditor('previous')">Previous Month:</button>
-    <button (click)="toggleEditor('current')">Current Month:</button>
-    <button (click)="toggleEditor('next')">Next Month:</button>
-</nav>
 
-<div *ngIf="showPreviousEditor">
-    Previous Works!
+<div>
+  <button (click)="onPreviousMonth()"> Previous </button>
+  <span> {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }} </span>
+  <button (click)="onNextMonth()"> Next </button>
 </div>
 
-<div *ngIf="showCurrentEditor">
-    Current Works!
-    <table style="width:100%">
-        <tr>
-          <th>Sunday</th>
-          <th>Monday</th>
-          <th>Tuesday</th>
-          <th>Wednesday</th>
-          <th>Thursday</th>
-          <th>Friday</th>
-          <th>Saturday</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td>2</td>
-          <td>3</td>
-          <td>4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>        
-        </tr>
+<br>
 
-      </table>
+<div class="calendar">
+  <span *ngFor='let weekDay of weekDaysName' class="day">
+    {{ weekDay }}
+  </span>
+
+  <span *ngFor='let day of monthDays' class="day">
+    {{ day.number }}
+  </span>
 </div>
-
-<div *ngIf="showNextEditor">
-    Next Works!
-</div>
-
-
-
-
-
-<!-- <div class="month">
-    <ul>
-      <li class="prev">&#10094;</li>
-      <li class="next">&#10095;</li>
-      <li>August<br><span style="font-size:18px">2021</span></li>
-    </ul>
-  </div>
-  
-  <ul class="weekdays">
-    <li>Mo</li>
-    <li>Tu</li>
-    <li>We</li>
-    <li>Th</li>
-    <li>Fr</li>
-    <li>Sa</li>
-    <li>Su</li>
-  </ul>
-  
-  <ul class="days">
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-    <li>6</li>
-    <li>7</li>
-    <li>8</li>
-    <li>9</li>
-    <li><span class="active">10</span></li>
-    <li>11</li>
-    <li>11</li>
-    ...etc
-  </ul> -->
