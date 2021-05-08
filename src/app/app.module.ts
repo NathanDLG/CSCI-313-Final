@@ -15,6 +15,7 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
 import { MyCalendarsComponent } from './my-calendars/my-calendars.component';
+import { NewCalendarComponent } from './new-calendar/new-calendar.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MyCalendarsComponent } from './my-calendars/my-calendars.component';
     NavbarComponent,
     SearchComponent,
     MyCalendarsComponent,
+    NewCalendarComponent,
 
   ],
   imports: [
