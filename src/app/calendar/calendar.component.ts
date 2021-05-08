@@ -1,6 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input, Output } from "@angular/core";
 import { CalendarCreatorService } from "../calendar-creator.service";
 import { Day } from "./day";
+
+export type EditorType = 'start' | 'notes';
 
 
 @Component({
@@ -39,6 +41,15 @@ export class CalendarComponent implements OnInit {
     this.weekDaysName.push("Sunday");
   }
 
+  editor: EditorType = 'start';
+
+  get showNoteEditor() {
+    return this.editor === 'notes';
+  }
+
+  toggleEdit(type: EditorType) {
+    this.editor = type;
+  }
   //method to get to the next month
   onNextMonth(): void {
     this.monthNumber++;

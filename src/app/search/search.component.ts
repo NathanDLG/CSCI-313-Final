@@ -36,7 +36,7 @@ private searchin = new Subject<string>();
 
   filter(value : string){
 
-  // this.temp = this.userArray(UserTemplate.fname)
+  // this.temp = this.userArray(UserTemplate.fname);
 
     
 
