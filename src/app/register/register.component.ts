@@ -5,6 +5,8 @@ import { first } from 'rxjs/operators';
 
 import { UserService, AuthenticationService } from '../_services';
 
+import{ UserTemplate } from '../UserTemplate';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -38,6 +40,10 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+
+
+/*
+
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
 
@@ -61,4 +67,20 @@ export class RegisterComponent implements OnInit {
                   this.loading = false;
               });
   }
+
+*/
+  
+  profileForm = this.formBuilder.group({
+    fname : [''],
+    lname : [''],
+    username : [''],
+    password : ['']
+
+  });
+
+  onSubmit( user : UserTemplate){
+    this.userService.setUser(user);
+  }
+
+
 }

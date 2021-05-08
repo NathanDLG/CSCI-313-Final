@@ -15,7 +15,11 @@ import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SearchComponent } from './search/search.component';
 import { MyCalendarsComponent } from './my-calendars/my-calendars.component';
+<<<<<<< HEAD
 import { NotesComponent } from './notes/notes.component';
+=======
+import { NewCalendarComponent } from './new-calendar/new-calendar.component';
+>>>>>>> 6710b10959e5edf00be978edc597d2037b7ff06f
 
 @NgModule({
   declarations: [
@@ -27,7 +31,11 @@ import { NotesComponent } from './notes/notes.component';
     NavbarComponent,
     SearchComponent,
     MyCalendarsComponent,
+<<<<<<< HEAD
     NotesComponent,
+=======
+    NewCalendarComponent,
+>>>>>>> 6710b10959e5edf00be978edc597d2037b7ff06f
 
   ],
   imports: [

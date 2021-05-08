@@ -1,0 +1,45 @@
+<p>new-calendar works!</p>
+
+<label>Click the dates you wish to highlight on your Calendar</label>
+
+<div class="buttons">
+  <button (click)="onPreviousMonth()">Previous</button>
+  <span>
+    {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }}
+  </span>
+  <button (click)="onNextMonth()">Next</button>
+</div>
+
+<br />
+
+<div class="calendar">
+  <span *ngFor="let weekDay of weekDaysName" class="day">
+    {{ weekDay }}
+  </span>
+
+  <span *ngFor="let day of monthDays" class="day">
+    <div *ngIf="day.num">
+      <!-- If day is highlighted, change class to highlight otherwise display normally-->
+      <div *ngIf="checkDayHighlighted(day); else normal_day">
+        <button type="button" class="btn btn-primary" (click)="onButton(day)">
+          {{ day.num }}
+        </button>
+      </div>
+      <ng-template #normal_day>
+        <button (click)="onButton(day)">
+          {{ day.num }} {{ day.yr }} {{ day.mnth }} {{ day.monthIndex }}
+          {{ day.weekDayName }} {{ day.weekDayNumber }}
+        </button>
+      </ng-template>
+    </div>
+  </span>
+</div>
+
+<label for="enterIdBox">Enter User ID</label>
+<input #useridBox id="enterIdBox" />
+<br />
+<button (click)="createNewCalendar(useridBox.value)">Create calendar</button>
+<br />
+<span *ngFor="let calendar of calendars" class="day">
+  {{ calendar.userID }} {{ calendar.calendarID }}
+</span>

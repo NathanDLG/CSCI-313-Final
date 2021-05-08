@@ -1,3 +1,6 @@
+
+<!----
+
 <div *ngIf="error" class="alert alert-danger">{{error}}</div>
 <h2>Register</h2>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
@@ -38,3 +41,40 @@
         <a routerLink="/login" class="btn btn-link">Cancel</a>
     </div>
 </form>
+
+-->
+
+
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit(profileForm.value)" novalidate>
+
+    <label>
+      First Name:
+      <input type="text" formControlName="fname" />
+    </label>
+
+    <br>
+  
+    <label>
+      Last Name:
+      <input type="text" formControlName="lname" />
+    </label>
+  
+    <br>
+
+    <label>
+      Username:
+      <input type="text" formControlName="username" />
+    </label>
+  
+    <br>
+
+    <label>
+      Password:
+      <input type="text" formControlName="password" />
+    </label>
+
+    <br>
+  
+    <button type = "submit">Submit</button>
+  
+    </form>
