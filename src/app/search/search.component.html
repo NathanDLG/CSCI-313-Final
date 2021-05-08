@@ -1,8 +1,27 @@
 <div>
 <input type="text" placeholder="Search">
-<button>Submit</button>
+<button (click) = "filter(input)" >Submit</button>
 </div>
 
 <div>
     <h2>Matches :</h2>
+</div>
+
+
+
+
+<div id = "search">
+    <h2>All Users :</h2>
+
+    <div *ngFor = 'let UserTemplate of userArray'>
+
+        <div>
+            
+        <p>{{UserTemplate.fname}} <br> {{UserTemplate.lname}} <br> {{UserTemplate.username}} </p> 
+            <br>
+
+        </div>
+
+    </div>
+
 </div>
