@@ -5,15 +5,15 @@ import { first } from 'rxjs/operators';
 
 import { UserService, AuthenticationService } from '../_services';
 
-import{ UserTemplate } from '../UserTemplate';
+import { UserTemplate } from '../UserTemplate';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-
+  profileForm: FormGroup;
   registerForm: FormGroup;
   loading = false;
   submitted = false;
@@ -24,25 +24,32 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService
-  ) { 
+  ) {
     //redirects to home if the user is already logged in
-    if(this.authenticationService.currentUserValue){
+    if (this.authenticationService.currentUserValue) {
       this.router.navigate(['/']);
     }
   }
 
   ngOnInit(): void {
+    this.profileForm = this.formBuilder.group({
+      fname: [''],
+      lname: [''],
+      username: [''],
+      password: [''],
+      id: 1,
+    });
+    /*
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
       username: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      password: ['', [Validators.required, Validators.minLength(6)]],
     });
+    */
   }
 
-
-
-/*
+  /*
 
   // convenience getter for easy access to form fields
   get f() { return this.registerForm.controls; }
@@ -69,18 +76,18 @@ export class RegisterComponent implements OnInit {
   }
 
 */
-  
+
+  /*
   profileForm = this.formBuilder.group({
-    fname : [''],
-    lname : [''],
-    username : [''],
-    password : ['']
-
+    fname: [''],
+    lname: [''],
+    username: [''],
+    password: [''],
+    id: 1,
   });
+*/
 
-  onSubmit( user : UserTemplate){
+  onSubmit(user: UserTemplate) {
     this.userService.setUser(user);
   }
-
-
 }
