@@ -17,6 +17,8 @@ import { SearchComponent } from './search/search.component';
 import { MyCalendarsComponent } from './my-calendars/my-calendars.component';
 import { NotesComponent } from './notes/notes.component';
 import { NewCalendarComponent } from './new-calendar/new-calendar.component';
+import { CalendarsService } from './calendars.service';
+import { UserService } from './_services/user.service';
 
 @NgModule({
   declarations: [
@@ -49,6 +51,8 @@ import { NewCalendarComponent } from './new-calendar/new-calendar.component';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     fakeBackendProvider,
+    CalendarsService,
+    UserService,
   ],
   bootstrap: [AppComponent],
 })
