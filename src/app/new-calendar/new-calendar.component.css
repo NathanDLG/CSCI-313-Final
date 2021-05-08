@@ -1,0 +1,15 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+.calendar {
+  width: 2100px;
+}
+
+.day {
+  width: 300px;
+  display: inline-block;
+}
+
+.highlighted {
+  color: blue;
+  width: 100px;
+}
