@@ -1,10 +1,18 @@
 <div>
-<input type="text" placeholder="Search">
-<button (click) = "filter(input)" >Submit</button>
+<input #searchBox id="search-box" (input)="filter(searchBox.value)" placeholder="Search..."/>
+
 </div>
 
 <div>
     <h2>Matches :</h2>
+
+    <ul class="search-result">
+        <li *ngFor="let UserTemplate of filteredArray" >
+          <a routerLink="/my_calendars/{{UserTemplate.id}}">
+            {{UserTemplate.username}}
+          </a>
+          </li>
+    </ul>
 </div>
 
 

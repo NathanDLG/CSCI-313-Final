@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { UserTemplate } from '../UserTemplate';
 import { UserService } from '../_services/user.service';
+import { Observable, Subject } from 'rxjs';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 
 @Component({
@@ -14,6 +16,7 @@ export class SearchComponent implements OnInit {
 
   ngOnInit(): void {
     this.userArray = this.service.getUsers();
+
   }
 
   userArray : UserTemplate[];
@@ -24,9 +27,17 @@ temp : string;
 filteredArray : UserTemplate[];
 index : number;
 
-  filter(input : string){
-    this.temp = input.slice(0, 3);
-    this.filteredArray = [];
+user$: Observable<UserTemplate[]>;
+private searchin = new Subject<string>();
+
+
+
+
+
+  filter(value : string){
+
+  // this.temp = this.userArray(UserTemplate.fname)
+
     
 
     for(this.i = 0; this.i < this.userArray.length - 1 ; this.i ++){

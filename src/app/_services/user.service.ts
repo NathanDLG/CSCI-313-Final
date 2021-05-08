@@ -2,11 +2,16 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { UserTemplate } from '../UserTemplate'; 
 
+import { Observable, of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+
 
 @Injectable({ providedIn: 'root' })
 export class UserService {
     constructor(private http: HttpClient) { }
 
+
+    private userUrl = 'api/my_calendar';
 
     getAll() {
         return this.http.get<any[]>(`${config.apiUrl}/users`);
@@ -72,5 +77,11 @@ export class UserService {
         return this.UserArray.find(x => x.id == id);
     }
     
-
+    searchUser(str: string): Observable<UserTemplate[]> {
+        if (!str.trim()) {
+          //return if not search term
+          return of([]);
+        }
+        return this.http.get<UserTemplate[]>(`${this.userUrl}/?fname=${str}`).pipe()
+      }
 }
