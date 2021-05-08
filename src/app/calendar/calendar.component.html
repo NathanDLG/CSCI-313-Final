@@ -1,7 +1,7 @@
 <p>calendar works!</p>
 
 
-<div>
+<div class = "buttons">
   <button (click)="onPreviousMonth()"> Previous </button>
   <span> {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }} </span>
   <button (click)="onNextMonth()"> Next </button>
@@ -15,6 +15,22 @@
   </span>
 
   <span *ngFor='let day of monthDays' class="day">
-    {{ day.number }}
+    <div *ngIf = "day.num">
+      <button (click)="onButton()">{{ day.num }}</button>
+    </div>
   </span>
 </div>
+
+
+  <!-- <tr>
+    <th *ngFor = "let day of monthDays; let i = index;">
+      <div *ngIf = "i < 7">
+        <div *ngIf = "day.num">
+          <button (click)="onButton()">{{ day.num }}</button>
+        </div>
+      </div>
+    </th>
+  </tr>
+
+
+  <tr *ngFor='let weekDay of weekDaysName'><th>{{ weekDay }}</th> -->

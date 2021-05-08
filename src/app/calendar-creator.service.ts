@@ -5,19 +5,23 @@ import {Day} from './calendar/day';
   providedIn: 'root'
 })
 export class CalendarCreatorService {
+  //currentYear and currentMonthIndex return the current month and year represented by the calendar
   private currentYear: number;
   private currentMonthIndex: number;
 
+  //gets the currentYear and currentMonthIndex
   constructor() {
     let date = new Date();
     this.currentYear = date.getFullYear();
     this.currentMonthIndex = date.getMonth(); 
   }
 
+  //return the current month
   public getCurrentMonth(): Day[] {
     return this.getMonth(this.currentMonthIndex, this.currentYear);
   }
 
+  //returns array of Days
   public getMonth(monthIndex: number, year: number): Day[] {
     let days = [];
 
@@ -27,7 +31,7 @@ export class CalendarCreatorService {
       days.push({
         weekDayNumber: i,
         monthIndex: monthIndex,
-        year: year,
+        yr: year,
       } as Day);
     }
     days.push(firstday);
@@ -40,8 +44,9 @@ export class CalendarCreatorService {
     return days;
   }
 
+  //Gets specific month by using switch case
   public getMonthName(monthIndex: number): string {
-    switch (monthIndex) {
+    switch (monthIndex) {     
       case 0:
         return "January";      
       case 1:
@@ -72,36 +77,38 @@ export class CalendarCreatorService {
     }
   }
 
+  //Returns the Day of the week by switch case
   public getWeekDayName(weekDay: number): string {
     switch (weekDay) {
       case 0:
-        return "Su"; // Sunday
+        return "Su";
       case 1:
-        return "Mo"; // Monday
+        return "Mo";
       case 2:
-        return "Tu"; // Tuesday
+        return "Tu";
       case 3:
-        return "We"; // Wednesday
+        return "We";
       case 4:
-        return "Th"; // Thursday
+        return "Th";
       case 5:
-        return "Fr"; // Friday
+        return "Fr";
       case 6:
-        return "Sa"; // Saturday
+        return "Sa"; 
 
       default:
         return "weekDay is not between 0-6";
     }
   }
 
+  //private method that creates a day by using previously declared methods
   private createDay(dayNumber: number, monthIndex: number, year: number) {
     let day = new Day();
 
     day.monthIndex = monthIndex;
-    day.month = this.getMonthName(monthIndex);
+    day.mnth = this.getMonthName(monthIndex);
 
-    day.number = dayNumber;
-    day.year = this.currentYear;
+    day.num = dayNumber;
+    day.yr = this.currentYear;
 
     day.weekDayNumber = new Date(year, monthIndex, dayNumber).getDay();
     day.weekDayName = this.getWeekDayName(day.weekDayNumber);
