@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, NgModule } from '@angular/core';
+import { CalendarCreatorService } from '../calendar-creator.service';
 import { Day } from '../calendar/day';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-notes',
@@ -8,17 +10,27 @@ import { Day } from '../calendar/day';
 })
 export class NotesComponent implements OnInit {
 
-  constructor() { }
+  constructor(public calendarCreator: CalendarCreatorService) { }
 
-  @Input() inputDay: Day;
+  public textbox: string;
+
+
+  public note: string;
+
+  public notesArray: string[];
+  @Input() inputDay: number;
 
   @Output() output = new EventEmitter<string>();
+  
   ngOnInit(): void {
+    this.notesArray = this.calendarCreator.getNoteInfo();
+    this.textbox = this.notesArray[this.inputDay - 1];
   }
 
-  test()
+  test(note: string)
   {
-    this.output.emit();
+    this.calendarCreator.changeDayNotes(this.inputDay, note);
+    this.output.emit(this.textbox);
   }
 
 }

@@ -12,6 +12,8 @@ export type EditorType = 'start' | 'notes';
 })
 export class CalendarComponent implements OnInit {
 
+  public dayNum: number;
+
   //array for the days in a month
   public monthDays: Day[];
 
@@ -47,8 +49,9 @@ export class CalendarComponent implements OnInit {
     return this.editor === 'notes';
   }
 
-  toggleEdit(type: EditorType) {
+  toggleEdit(type: EditorType, id: number) {
     this.editor = type;
+    this.dayNum = id;
   }
   //method to get to the next month
   onNextMonth(): void {

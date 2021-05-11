@@ -1,4 +1,4 @@
-@import "~bootstrap/dist/css/bootstrap.css";
+/* @import "~bootstrap/dist/css/bootstrap.css";
 
 .calendar {
   width: 2100px;
@@ -12,4 +12,131 @@
 .highlighted {
   color: blue;
   width: 100px;
+} */
+
+
+.calendar {
+  width: 131.25rem;
+}
+
+.calendar span:nth-child(1){
+  background-color: white;
+  width: 18.4rem;
+  border: .1rem solid;
+  border-color: #2460A7FF;
+}
+.calendar span:nth-child(2){
+  background-color: white;
+  width: 18.4rem;
+  border: .1rem solid;
+  border-color: #2460A7FF;
+}
+.calendar span:nth-child(3){
+  background-color: white;
+  width: 18.4rem;
+  border: .1rem solid;
+  border-color: #2460A7FF;
+}
+.calendar span:nth-child(4){
+  background-color: white;
+  width: 18.4rem;
+  border: .1rem solid;
+  border-color: #2460A7FF;
+}
+.calendar span:nth-child(5){
+  background-color: white;
+  width: 18.4rem;
+  border: .1rem solid;
+  border-color: #2460A7FF;
+}
+.calendar span:nth-child(6){
+  background-color: white;
+  width: 18.4rem;
+  border: .1rem solid;
+  border-color: #2460A7FF;
+}
+.calendar span:nth-child(1){
+  background-color: white;
+  width: 18.4rem;
+  border: .1rem solid;
+  border-color: #2460A7FF;
+}
+.calendar span:nth-child(2){
+  background-color: white;
+  width: 18.4rem;
+  border: .1rem solid;
+  border-color: #2460A7FF;
+}
+.calendar span:nth-child(7){
+  background-color: white;
+  width: 18.4rem;
+  border: .1rem solid;
+  border-color: #2460A7FF;
+}
+
+.calendar button{
+  background-color: #D9B48FFF;
+  border: .2rem solid;
+  border-radius: .5rem;
+  
+  width: 5rem;
+  height: 4rem;
+}
+
+.calendar button:hover{
+  background-color: orange;
+}
+.calendar button:focus{
+  background-color: orange;
+}
+
+.day {
+  width: 18.75rem;
+  display: inline-block;
+}
+
+body{
+  font-family: sans-serif;
+  font-weight: 100;
+  background-color: #B3C7D6FF;
+  width:auto;
+  height: auto;
+  border: .5rem solid #2460A7FF;
+  border-radius: .5rem;
+  padding: .5rem;
+  margin: .5rem;
+  
+}
+
+div.buttons{
+  width: fit-content;
+  border: .2rem solid #2460A7FF;
+  border-radius: .5rem;
+  padding: .25rem;
+  margin: .25rem;
+  background-color: #B3C7D6FF;
+  
+}
+
+.buttons button{
+  padding: 0.3rem 1.2rem;
+  margin: 0 0.1rem 0.1rem 0;
+  border: 0.16rem solid rgba(255,255,255,0);
+  border-radius: 2rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  background-color: lightblue;
+  color: black;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.buttons button:hover{
+  background-color: orange;
+}
+
+.buttons span{
+  font-weight:600;
+  color: black;
 }

@@ -1,5 +1,5 @@
-<!-- <p>{{inputDay.day}}</p> -->
-<p> test </p>
-
-
-<button (click)="test()">Close</button>
+<p> Notes for Day: {{inputDay}}</p>
+<textarea rows="4" cols="50" ng-model = "textbox">
+    {{textbox}}
+    </textarea>
+<button (click)="test(textbox)">Close</button>

@@ -9,6 +9,14 @@ export class CalendarCreatorService {
   private currentYear: number;
   private currentMonthIndex: number;
 
+  public dayNotes = ["Notes for Day 1:", "Notes for Day 2:", "Notes for Day 3:", "Notes for Day 4:",
+  "Notes for Day 5:", "Notes for Day 6:", "Notes for Day 7:", "Notes for Day 8:", "Notes for Day 9:",
+  "Notes for Day 10:", "Notes for Day 11:", "Notes for Day 12:", "Notes for Day 13:", "Notes for Day 14:",
+  "Notes for Day 15:", "Notes for Day 16:", "Notes for Day 17:", "Notes for Day 18:", "Notes for Day 19:",
+  "Notes for Day 20:", "Notes for Day 21:", "Notes for Day 22:", "Notes for Day 23:", "Notes for Day 24:",
+  "Notes for Day 25:", "Notes for Day 26:", "Notes for Day 27:", "Notes for Day 28:", "Notes for Day 29:",
+  "Notes for Day 30:", "Notes for Day 31:"];
+
   //gets the currentYear and currentMonthIndex
   constructor() {
     let date = new Date();
@@ -16,6 +24,16 @@ export class CalendarCreatorService {
     this.currentMonthIndex = date.getMonth(); 
   }
 
+  public getNoteInfo()
+  {
+    return this.dayNotes;
+  }
+
+  public changeDayNotes(day: number, note: string)
+  {
+    this.dayNotes[day - 1] = note;
+  }
+  
   //return the current month
   public getCurrentMonth(): Day[] {
     return this.getMonth(this.currentMonthIndex, this.currentYear);

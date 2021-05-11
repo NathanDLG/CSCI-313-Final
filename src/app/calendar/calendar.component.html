@@ -26,14 +26,14 @@
 
   <span *ngFor='let day of monthDays' class="day">
     <div *ngIf = "day.num">
-      <button (click)="toggleEdit('notes')">{{ day.num }}</button>
+      <button (click)="toggleEdit('notes', day.num)">{{ day.num }}</button>
     </div>
   </span>
 </div>
 
 
 <div *ngIf="showNoteEditor">
-  <app-notes [inputDay] = "day.num" (output) = "toggleEdit('start')"></app-notes>
+  <app-notes [inputDay] = "dayNum" (output) = "toggleEdit('start')"></app-notes>
   </div>
 
   <!-- <tr>
