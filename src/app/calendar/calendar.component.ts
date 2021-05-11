@@ -17,6 +17,7 @@ export class CalendarComponent implements OnInit {
   public calendars: CalendarTemplate[] = [];
   public selectedCalendar: CalendarTemplate;
   public showCalendar: boolean = false;
+  public calendarNotFound: boolean = false;
 
   //array for the days in a month
   public monthDays: Day[];
@@ -102,8 +103,10 @@ export class CalendarComponent implements OnInit {
     }
     if (calendarFound == true) {
       this.showCalendar = true;
+      this.calendarNotFound = false;
     } else {
       this.showCalendar = false;
+      this.calendarNotFound = true;
     }
     calendarFound = false;
   }
