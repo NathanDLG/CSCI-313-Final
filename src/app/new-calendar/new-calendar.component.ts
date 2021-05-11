@@ -126,7 +126,11 @@ export class NewCalendarComponent implements OnInit {
   checkDayHighlighted(day: Day): boolean {
     let dayHighlighted: boolean = false;
     for (let highlightedDay of this.highlightedDays) {
-      if (day == highlightedDay) {
+      if (
+        day.num == highlightedDay.num &&
+        day.mnth == highlightedDay.mnth &&
+        day.yr == highlightedDay.yr
+      ) {
         dayHighlighted = true;
       }
     }
