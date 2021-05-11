@@ -35,26 +35,26 @@
           {{ weekDay }}
         </span>
 
-<<<<<<< HEAD
-  <span *ngFor='let day of monthDays' class="day">
-    <div *ngIf = "day.num">
-      <button (click)="toggleEdit('notes', day.num)">{{ day.num }}</button>
-=======
         <span *ngFor="let day of monthDays" class="day">
           <div *ngIf="day.num">
             <!-- If day is highlighted, change class to highlight otherwise display normally-->
             <div *ngIf="checkDayHighlighted(day); else normal_day">
-              <button type="button" class="btn btn-primary">
+              <button
+                type="button"
+                (click)="toggleEdit('notes', day.num)"
+                class="btn btn-primary"
+              >
                 {{ day.num }} {{ day.mnth }}
               </button>
             </div>
             <ng-template #normal_day>
-              <button>{{ day.num }} {{ day.mnth }}</button>
+              <button (click)="toggleEdit('notes', day.num)">
+                {{ day.num }} {{ day.mnth }}
+              </button>
             </ng-template>
           </div>
         </span>
       </div>
->>>>>>> af984a2ce4d85e3b574ff0df74180b676e1406a1
     </div>
 
     <h3>Created Calendar IDs</h3>
@@ -62,25 +62,23 @@
       {{ calendar.calendarID }}
     </span>
 
-    <!-- 
-<div *ngIf="showNoteEditor">
-  <app-notes [inputDay] = "dayNum" (output) = "toggleEdit('start')"></app-notes>
-  </div>
--->
-
-    <!-- <tr>
-    <th *ngFor = "let day of monthDays; let i = index;">
-      <div *ngIf = "i < 7">
-        <div *ngIf = "day.num">
-          <button (click)="onButton()">{{ day.num }}</button>
+    <div *ngIf="showNoteEditor">
+      <app-notes [inputDay]="dayNum" (output)="toggleEdit('start')"></app-notes>
+    </div>
+    <!--
+    <tr>
+      <th *ngFor="let day of monthDays; let i = index">
+        <div *ngIf="i < 7">
+          <div *ngIf="day.num">
+            <button (click)="onButton()">{{ day.num }}</button>
+          </div>
         </div>
-      </div>
-    </th>
-  </tr>
-
-
- <tr *ngFor='let weekDay of weekDaysName'><th>{{ weekDay }}</th> -->
-
-    <!-- (output)="toggleEdit('start')" -->
-  </body>
+      </th>
+    </tr>
+  -->
+    <!--
+    <tr *ngFor="let weekDay of weekDaysName">
+      <th>{{ weekDay }}</th>
+    </tr>
+  --></body>
 </html>
