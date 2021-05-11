@@ -1,35 +1,34 @@
 <div>
-<input #searchBox id="search-box" (input)="filter(searchBox.value)" placeholder="Search..."/>
-
+  <input
+    #searchBox
+    id="search-box"
+    (input)="filter(searchBox.value)"
+    placeholder="Search User Id..."
+  />
+  <button (click)="onSubmit(searchBox.value)">Submit</button>
 </div>
 
 <div>
-    <h2>Matches :</h2>
-
-    <ul class="search-result">
-        <li *ngFor="let UserTemplate of filteredArray" >
-          <a routerLink="/my_calendars/{{UserTemplate.id}}">
-            {{UserTemplate.username}}
-          </a>
-          </li>
+  <h2>Calendar ID Matches for User:</h2>
+  <div *ngIf="matchFound">
+    <ul>
+      <li *ngFor="let number of coolArray">{{ number }}</li>
     </ul>
+  </div>
 </div>
 
+<div id="search">
+  <h2>All Users :</h2>
 
-
-
-<div id = "search">
-    <h2>All Users :</h2>
-
-    <div *ngFor = 'let UserTemplate of userArray'>
-
-        <div>
-            
-        <p>{{UserTemplate.fname}} <br> {{UserTemplate.lname}} <br> {{UserTemplate.username}} </p> 
-            <br>
-
-        </div>
-
+  <div *ngFor="let UserTemplate of userArray">
+    <div>
+      <p>
+        {{ UserTemplate.fname }} <br />
+        {{ UserTemplate.lname }} <br />
+        {{ UserTemplate.username }} <br />
+        {{ UserTemplate.id }}
+      </p>
+      <br />
     </div>
-
+  </div>
 </div>

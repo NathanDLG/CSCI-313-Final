@@ -22,6 +22,8 @@ export class NewCalendarComponent implements OnInit {
   public users: UserTemplate[] = [];
   public calendars: CalendarTemplate[] = [];
   public highlightedDays: Day[] = [];
+  public validID: boolean = false;
+  public invalidID: boolean = false;
 
   //array for the days in a month
   public monthDays: Day[];
@@ -126,7 +128,11 @@ export class NewCalendarComponent implements OnInit {
   checkDayHighlighted(day: Day): boolean {
     let dayHighlighted: boolean = false;
     for (let highlightedDay of this.highlightedDays) {
-      if (day == highlightedDay) {
+      if (
+        day.num == highlightedDay.num &&
+        day.mnth == highlightedDay.mnth &&
+        day.yr == highlightedDay.yr
+      ) {
         dayHighlighted = true;
       }
     }
@@ -142,11 +148,24 @@ export class NewCalendarComponent implements OnInit {
   }
 
   createNewCalendar(enteredID: string): void {
-    var numID: number = +enteredID;
-    this.CalendarsService.addCalendar({
-      highlightedDays: this.highlightedDays,
-      userID: numID,
-      calendarID: 1,
-    } as CalendarTemplate);
+    this.invalidID = false;
+    if (this.validID == true) {
+      this.validID = false;
+    }
+    for (let user of this.users) {
+      if (parseInt(enteredID) == user.id) {
+        this.validID = true;
+      }
+    }
+    if (this.validID == true) {
+      var numID: number = +enteredID;
+      this.CalendarsService.addCalendar({
+        highlightedDays: this.highlightedDays,
+        userID: numID,
+        calendarID: 1,
+      } as CalendarTemplate);
+    } else {
+      this.invalidID = true;
+    }
   }
 }

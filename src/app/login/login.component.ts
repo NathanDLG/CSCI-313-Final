@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AuthenticationService } from '../_services';
+import { AuthenticationService, UserService } from '../_services';
 
 @Component({
   selector: 'app-login',
@@ -17,12 +17,15 @@ export class LoginComponent implements OnInit {
   returnUrl: string;
   error: string;
   success: string;
+  flagsCheck = false;
+  message = "";
 
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
+    private authenticationService: AuthenticationService,
+    private userService: UserService
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
@@ -43,6 +46,24 @@ export class LoginComponent implements OnInit {
       this.success = 'Registration successful';
     }
   }
+
+  //super scuffed login check that just iterates through the array and checks usernames and passwords
+  checkLogin(){
+    this.flagsCheck = true;
+    for(let i = 0; i < this.userService.UserArray.length; i++){
+      if(this.loginForm.controls['username'].value === this.userService.UserArray[i].username
+      && this.loginForm.controls['password'].value === this.userService.UserArray[i].password){
+        this.message = "Login Successful"
+      }
+      else{
+        this.message = "Username or Password is incorrect"
+      }
+
+    }
+    this.loginForm.reset();
+
+  }
+
 
   // convenience getter for easy access to form fields
   get f() {
