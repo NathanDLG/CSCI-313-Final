@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Calendar</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calendar</title>
+  </head>
+  <body>
+    <label for="enterIdBox">Enter Calendar ID</label>
+    <br />
+    <input #enterCalendarIdBox id="enterCalendarIdBox" />
+    <br />
+    <button (click)="grabCalendarByID(enterCalendarIdBox.value)">
+      Search Calendar
+    </button>
+    <br />
+    <div *ngIf="calendarNotFound">
+      <p>Invalid Calendar ID entered</p>
+    </div>
 
-
-<label for="enterIdBox">Enter Calendar ID</label>
-<br />
-<input #enterCalendarIdBox id="enterCalendarIdBox" />
-<br />
-<button (click)="grabCalendarByID(enterCalendarIdBox.value)">
-  Search Calendar
-</button>
-<br />
-
-<div *ngIf="showCalendar">
-  <div class="buttons">
-    <button (click)="onPreviousMonth()">Previous</button>
-    <span>
-      {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }}
-    </span>
-    <button (click)="onNextMonth()">Next</button>
-  </div>
-
-  <br />
-
-  <div class="calendar">
-    <span *ngFor="let weekDay of weekDaysName" class="day">
-      {{ weekDay }}
-    </span>
-
-    <span *ngFor="let day of monthDays" class="day">
-      <div *ngIf="day.num">
-        <!-- If day is highlighted, change class to highlight otherwise display normally-->
-        <div *ngIf="checkDayHighlighted(day); else normal_day">
-          <button type="button" class="btn btn-primary">
-            {{ day.num }} {{ day.mnth }}
-          </button>
-        </div>
-        <ng-template #normal_day>
-          <button>{{ day.num }} {{ day.mnth }}</button>
-        </ng-template>
+    <div *ngIf="showCalendar">
+      <div class="buttons">
+        <button (click)="onPreviousMonth()">Previous</button>
+        <span>
+          {{ calendarCreator.getMonthName(monthNumber) }} &nbsp; {{ year }}
+        </span>
+        <button (click)="onNextMonth()">Next</button>
       </div>
+
+      <br />
+
+      <div class="calendar">
+        <span *ngFor="let weekDay of weekDaysName" class="day">
+          {{ weekDay }}
+        </span>
+
+        <span *ngFor="let day of monthDays" class="day">
+          <div *ngIf="day.num">
+            <!-- If day is highlighted, change class to highlight otherwise display normally-->
+            <div *ngIf="checkDayHighlighted(day); else normal_day">
+              <button type="button" class="btn btn-primary">
+                {{ day.num }} {{ day.mnth }}
+              </button>
+            </div>
+            <ng-template #normal_day>
+              <button>{{ day.num }} {{ day.mnth }}</button>
+            </ng-template>
+          </div>
+        </span>
+      </div>
+    </div>
+
+    <h3>Created Calendar IDs</h3>
+    <span *ngFor="let calendar of calendars" class="day">
+      {{ calendar.calendarID }}
     </span>
-  </div>
-</div>
 
-<h3>Created Calendar IDs</h3>
-<span *ngFor="let calendar of calendars" class="day">
-  {{ calendar.calendarID }}
-</span>
-
-<!-- 
+    <!-- 
 <div *ngIf="showNoteEditor">
   <app-notes [inputDay] = "day.num" (output) = "toggleEdit('start')"></app-notes>
   </div>
 -->
 
-<!-- <tr>
+    <!-- <tr>
     <th *ngFor = "let day of monthDays; let i = index;">
       <div *ngIf = "i < 7">
         <div *ngIf = "day.num">
@@ -74,7 +75,6 @@
 
  <tr *ngFor='let weekDay of weekDaysName'><th>{{ weekDay }}</th> -->
 
-<!-- (output)="toggleEdit('start')" -->
-
-</body>
+    <!-- (output)="toggleEdit('start')" -->
+  </body>
 </html>
